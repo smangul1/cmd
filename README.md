@@ -14,7 +14,7 @@ Am example how to run `copy2gDrive.sh`
 while read line; do echo ". /u/local/Modules/default/init/modules.sh">run_${line}.sh; echo "module load samtools">>run_${line}.sh; echo "samtools view -bS ${line}.sam | samtools sort - ${line}.bam">>run_${line}.sh;done<sample.xt 
 ```
 
-# Run tophat hoffman2 : split by 1M and run 
+# Run tophat2 hoffman2 : split by 1M and run 
 
 - Example
 ```
