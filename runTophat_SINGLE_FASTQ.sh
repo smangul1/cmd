@@ -3,7 +3,7 @@
 
 
 
-if [ $# -lt 6 ]
+if [ $# -lt 5 ]
 then
 echo "********************************************************************"
 echo "RNA-Seq data analyses on hoffman2 : tophat "
@@ -18,7 +18,6 @@ echo "2 <wdir> - working directory, directory where results from rnaseq anlyses 
 echo "3 <bowtie2_index - location of bowtie2 index, e.g. for human /u/home/eeskin/serghei/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome for Drosophila_melanogaster ~/scratch/Drosophila_melanogaster/UCSC/dm3/Sequence/Bowtie2Index/genome"
 echo "4 tophat options if more then 2 arguments in the \" :::::: e.g. \"-G ~/scratch/Drosophila_melanogaster/UCSC/dm3/Annotation/Genes/genes.gtf\""
 echo "5 - file with the fastq names"
-echo "6 - dir whre all the scripts of sarahSeq are stored"
 
 echo "--------------------------------------"
 exit 1
@@ -177,7 +176,7 @@ pwd
 #chmod 755 */*sh
 
 ls */*sh | awk '{i+=1;print "if [ $1 == "i" ];then ./"$1" ;fi"}' > myFunc.sh
-cp ${6}//myFuncFastWrapper.sh ./
+cp /u/home/s/serghei/code/cmd/myFuncFastWrapper.sh ./
 
 chmod 755 myFunc.sh
 chmod 755 *sh
