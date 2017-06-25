@@ -32,7 +32,7 @@ echo "samtools sort -n ${1}/${sample}.bam ${1}/${sample}_sort_byname">>run_${sam
 
 #echo " sort -k 1,1 ${2}/mapped_${sample}.sam >mapped_${sample}_sort.sam">>run_${sample}.sh
 
-echo " 	python htseq-count --mode=intersection-strict --stranded=no  -f bam ${sample}_sort_byname.bam $gtf >${sample}.counts" >>run_${sample}.sh
+echo "htseq-count --mode=intersection-strict --stranded=no  -f bam ${sample}_sort_byname.bam $gtf >${sample}.counts" >>run_${sample}.sh
 
 echo "rm -rf ${sample}_sort_byname.bam">>run_${sample}.sh
 
