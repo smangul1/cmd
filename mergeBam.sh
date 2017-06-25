@@ -43,11 +43,7 @@ echo "samtools merge ./mapped/mapped_${sample}.bam *_mapped.bam" >>merge_${sampl
 echo "samtools merge ./unmapped/unmapped_${sample}.bam *_unmapped.bam" >>merge_${sample}.sh
 echo "samtools index ./mapped/mapped_${sample}.bam" >>merge_${sample}.sh
 echo "samtools index ./unmapped/unmapped_${sample}.bam" >>merge_${sample}.sh
-
-echo "samtools merge ./mapped/${sample}.bam ./mapped/mapped_${sample}.bam ./unmapped/unmapped_${sample}.bam">>merge_${sample}.sh
-echo "samtools index ./mapped/${sample}.bam">>merge_${sample}.sh
-
-#echo "bamtools convert -in ./unmapped/unmapped_${sample}.bam -format fastq > ./unmapped/unmapped_${sample}.fastq" >>merge_${sample}.sh
+echo "bamtools convert -in ./unmapped/unmapped_${sample}.bam -format fastq > ./unmapped/unmapped_${sample}.fastq" >>merge_${sample}.sh
 #echo "rm *bam" >>merge_${sample}.sh
 #echo "qsub -cwd -V -N merge_${sample} -l h_data=16G,time=24:00:00 ${dir}/merge_${sample}.sh">>${dir}/jobs2.txt
 #echo "qsub -cwd -V -N merge_${sample} -l h_data=4G,time=00:30:00 ${dir}/merge_${sample}.sh">>${dir}/jobs2.txt
