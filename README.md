@@ -1,3 +1,13 @@
+
+# DE - to be moved to DE dir
+
+## Rename files
+```
+for f in *; do new=$(echo $f | sed 's/mapped_//' | sed 's/-V//'); mv $f $new;done
+```
+
+
+
 # Connect cluster to github
 
 - On the culster 
