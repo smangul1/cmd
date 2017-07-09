@@ -1,3 +1,25 @@
+
+# DE - to be moved to DE dir
+
+## Rename files
+```
+for f in *; do new=$(echo $f | sed 's/mapped_//' | sed 's/-V//'); mv $f $new;done
+```
+
+
+
+# Connect cluster to github
+
+- On the culster 
+
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+- On the git hub page
+
+https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+
+
+
 # misc-scripts-hoffman2
 Miscellaneous scripts for hoffman2
 
