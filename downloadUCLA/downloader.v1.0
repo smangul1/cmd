@@ -1,0 +1,74 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use File::Path qw(make_path);
+
+# file: 	downloader
+# author:	Sean D. Gallaher
+# version: 	v1.0
+# date:		29-JUN-2016
+
+
+# check for input lane credentials or fail with a help message
+my $input = shift @ARGV;
+
+my $help = "\nNo input specified. Please specify \nlane credentials in the format:\nSxaQSEQsYA007L5:password\n\n";
+
+unless (defined $input) {
+	die "$help";
+}
+
+
+### parse the lane credentials
+$input =~ m/(SxaQSEQs.....L(.)):(.{12})/ ;
+my $lane = $1;
+my $laneNum = $2;
+my $password = $3;
+
+my $validationFail = "\nThe input is not in the correct format.\nPlease specify lane credentials in the format:\nSxaQSEQsYA007L5:password\n\n";
+
+unless (defined $lane & defined $password) {
+	die "$validationFail";
+}
+
+print "\nLane credentials accepted.\n\nThe lane is $lane\nThe password is $password\n\n";
+
+### create the directory structure
+
+my $qseqdir = "01_qseq";
+unless (-d "$qseqdir") {
+	make_path $qseqdir
+		or die "Cannot create path $qseqdir: $!\n";	
+}
+
+my $lanedir = "$qseqdir" . "/lane_$laneNum";
+unless (-d "$lanedir") {
+	make_path $lanedir
+		or die "Cannot create path $lanedir: $!\n";
+}
+
+### create a password file
+
+my $passwordFile = $lanedir . "/lane_password.txt";
+open (PW, ">", $passwordFile) 
+	or die "Cannot create $passwordFile: $!\n";
+print PW "$password";
+close (PW);
+
+system ("chmod 700 $passwordFile");
+
+### generate the rsync command
+
+my $server = "pan.pellegrini.mcdb.ucla.edu";
+my $runRsync = "rsync --recursive --times --verbose --stats --progress --itemize-changes --password-file $passwordFile rsync://" . $lane . "@" . $server . "/" . $lane . "/ $lanedir";
+
+### run it!
+
+print STDOUT "running...\n";
+
+system ("$runRsync") ;
+
+print STDOUT "done!\n\n";
+
+
