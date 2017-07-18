@@ -1,4 +1,11 @@
 
+
+# Subsample BAM file. In house script
+
+```
+python subsampleBam.py old.bam new.bam 0.5
+```
+
 # Transfer friles from/to Google Drive
 ```
 gdrive download --recursive 0B6t4h9kX59LaTXVKeE9GSEl2WEk
