@@ -15,8 +15,10 @@ echo ""
 echo ""
 echo "1 <fastq_dir>  - dir with  fastq files"
 echo "2 <wdir> - working directory, directory where results from rnaseq anlyses will be saved, for each samples separately directory will be created"
-echo "3 <bowtie2_index - location of bowtie2 index, e.g. for human /u/home/eeskin/serghei/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome for Drosophila_melanogaster ~/scratch/Drosophila_melanogaster/UCSC/dm3/Sequence/Bowtie2Index/genome"
-echo "4 tophat options if more then 2 arguments in the \" :::::: e.g. \"-G ~/scratch/Drosophila_melanogaster/UCSC/dm3/Annotation/Genes/genes.gtf\""
+
+echo "3 <bowtie2_index>  - location of bowtie2 index, e.g. /u/home/s/serghei/project/Homo_sapiens/Ensembl/GRCh37/Sequence/Bowtie2Index/genome"
+#echo "3 <bowtie2_index - location of bowtie2 index, e.g. for human /u/home/eeskin/serghei/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome for Drosophila_melanogaster ~/scratch/Drosophila_melanogaster/UCSC/dm3/Sequence/Bowtie2Index/genome"
+echo "4 tophat options if more then 2 arguments in the \" :::::: e.g. \"-G /u/home/s/serghei/project/Homo_sapiens/Ensembl/GRCh37/Annotation/Genes/genes.gtf\""
 echo "5 - file with the fastq names"
 
 echo "--------------------------------------"
