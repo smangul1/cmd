@@ -207,7 +207,6 @@ for row in reader:
             
             list_batch.append(dict_batch[sample+"-V"])
             
-            sample2=sample # to be changed
 
             if sample2 in samplesSetMetadata:
                 list_Steatosis.append(dict_Steatosis[sample2])

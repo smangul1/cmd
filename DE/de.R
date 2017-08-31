@@ -35,6 +35,15 @@ ddsHTSeq<-DESeqDataSetFromHTSeqCount(sampleTable=sampleTable, directory="", desi
 
 
 dds<-DESeq(ddsHTSeq)
+
+
+#normalize using DESeq
+outcsv_norm_deseq<-paste(args[2],args[3],"_geneCounts_norm_deseq.csv",sep="")
+countsN=counts(dds, normalized=TRUE)
+write.csv(countsN, file =outcsv_norm_deseq)
+
+
+#DE
 res<-results(dds)
 res<-res[order(res$padj),]
 head(res)
@@ -49,12 +58,8 @@ baseMeanPerLvl <- sapply( levels(dds$condition), function(lvl) rowMeans( counts(
 write.csv(baseMeanPerLvl, file =outcsv1)
 
 
-#normalize using DESeq
-outcsv_norm_deseq<-paste(args[2],args[3],"_geneCounts_norm_deseq.csv",sep="")
-countsN=counts(dds, normalized=TRUE)
-write.csv(countsN, file =outcsv1)
 
-counts(dds, normalized=TRUE)
+
 
 
 
