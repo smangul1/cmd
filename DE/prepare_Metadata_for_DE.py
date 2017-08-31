@@ -97,26 +97,26 @@ for row in reader:
         print "Error with phenotype"
         sys.exit(1)
 
-
-
+    sample2 = sample + "-"+args.tissue
+    print sample2
     if os.path.isfile(filename) and pheno1!="":
-        fileOut1.write(sample+","+filename+","+pheno1)
+        fileOut1.write(sample2+","+filename+","+pheno1)
         fileOut1.write("\n")
 
     if os.path.isfile(filename) and pheno2!="":
-        fileOut2.write(sample+","+filename+","+pheno2)
+        fileOut2.write(sample2+","+filename+","+pheno2)
         fileOut2.write("\n")
 
     if os.path.isfile(filename) and pheno3!="":
-        fileOut3.write(sample+","+filename+","+pheno3)
+        fileOut3.write(sample2+","+filename+","+pheno3)
         fileOut3.write("\n")
 
     if os.path.isfile(filename) and pheno4!="":
-        fileOut4.write(sample+","+filename+","+pheno4)
+        fileOut4.write(sample2+","+filename+","+pheno4)
         fileOut4.write("\n")
 
     if os.path.isfile(filename) and pheno5!="":
-        fileOut5.write(sample+","+filename+","+pheno5)
+        fileOut5.write(sample2+","+filename+","+pheno5)
         fileOut5.write("\n")
 
 print "Save to ", filename1,filename2,filename3,filename4,filename5
