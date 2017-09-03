@@ -78,17 +78,28 @@ resSig <- res[ which(res$padj < .1), ]
 write.csv(resSig, file = outcsv)
 
 
+#---------------------------------------
+print ("Normalize using rld")
+outcsvN<-paste(args[2],args[3],"_norm_rld.csv",sep="")
+rld <- rlog(dds)
+write.csv(assay(rld), file = outcsvN)
+
+
+#---------------------------------------
 print ("make PCA plot")
-rld <- rlogTransformation(dds, blind=TRUE)
 outPCA<-paste(args[2],"/PCA_",comparision,".pdf",sep="")
 pdf(outPCA)
 plotPCA(rld, intgroup=c("condition"))
 dev.off()
-
 outcsv_PCA<-paste(args[2],args[3],"_PCA.csv",sep="")
 write.csv(rld, file = outcsv_PCA)
 
 
+print ("save PCA plot into a file")
+outPCA_txt<-paste(args[2],"/PCA_txt_",comparision,".pdf",sep="")
+library(ggplot2)
+(data <- plotPCA(rld, intgroup=c("condition"), returnData=TRUE))
+write.csv(data, file = outPCA_txt)
 
 
 print ("DONE! de.R")
