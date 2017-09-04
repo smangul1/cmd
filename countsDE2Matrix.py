@@ -205,7 +205,7 @@ for row in reader:
                 list_tissue.append("Liver")
             
             
-            list_batch.append(dict_batch[sample+"-V"])
+            list_batch.append(dict_batch[sample])
             
 
             if sample2 in samplesSetMetadata:

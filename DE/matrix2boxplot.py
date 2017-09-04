@@ -1,6 +1,8 @@
 import csv
 
-file=open("/u/home/s/serghei/scratch/vazquez/control_steatosis_uncertain_vs_NASH_matrix.csv")
+
+matrix='/u/home/s/serghei/scratch/vazquez/control_steatosis_uncertain_vs_NASH_H_normGeneCounts_DE.csv'
+file=open(matrix)
 reader=csv.reader(file)
 for row in reader:
 	colnames=row
@@ -12,10 +14,10 @@ import pandas
 
 
 
-data = pandas.read_csv('/u/home/s/serghei/scratch/vazquez/control_steatosis_uncertain_vs_NASH_matrix.csv', names=colnames)		
+data = pandas.read_csv(matrix, names=colnames)
 names = data.name.tolist()
 GEA017 = data.GEA017.tolist()
 
-print GEA017
+print GEA017-H
 
 
