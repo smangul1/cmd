@@ -98,8 +98,8 @@ write.csv(rld, file = outcsv_PCA)
 print ("save PCA plot into a file")
 outPCA_txt<-paste(args[2],"/PCA_txt_",comparision,".pdf",sep="")
 library(ggplot2)
-(data <- plotPCA(rld, intgroup=c("condition"), returnData=TRUE))
-write.csv(data, file = outPCA_txt)
+dataPCA=(plotPCA(rld, intgroup=c("condition"), returnData=TRUE))
+write.csv(dataPCA, file = outPCA_txt)
 
 
 print ("DONE! de.R")
