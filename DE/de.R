@@ -11,7 +11,6 @@ if (length(args)<1) {
 }
 
 args <- commandArgs(trailingOnly = TRUE)
-print(args[1])
 
 
 
@@ -28,7 +27,7 @@ comparision=args[3]
 library('DESeq2')
 
 
-
+print (args[1])
 sampleTable=read.csv(args[1])
 ddsHTSeq<-DESeqDataSetFromHTSeqCount(sampleTable=sampleTable, directory="", design=~condition)
 
@@ -91,15 +90,13 @@ outPCA<-paste(args[2],"/PCA_",comparision,".pdf",sep="")
 pdf(outPCA)
 plotPCA(rld, intgroup=c("condition"))
 dev.off()
-outcsv_PCA<-paste(args[2],args[3],"_PCA.csv",sep="")
-write.csv(rld, file = outcsv_PCA)
 
 
 print ("save PCA plot into a file")
-outPCA_txt<-paste(args[2],"/PCA_txt_",comparision,".pdf",sep="")
+outPCA_csv<-paste(args[2],"/PCA_txt_",comparision,".csv",sep="")
 library(ggplot2)
 dataPCA=(plotPCA(rld, intgroup=c("condition"), returnData=TRUE))
-write.csv(dataPCA, file = outPCA_txt)
+write.csv(dataPCA, file = outPCA_csv)
 
 
 print ("DONE! de.R")
