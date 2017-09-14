@@ -1,4 +1,12 @@
 
+# install DESeq2 on hoffman2
+
+Notice : http instead of http
+
+```
+source("http://bioconductor.org/biocLite.R")
+biocLite("DESeq2")
+```
 
 # Subsample BAM file. In house script
 

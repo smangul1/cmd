@@ -24,22 +24,21 @@ dir.create(args[2])
 comparision=args[3]
 
 
+
 library('DESeq2')
 
 
 print (args[1])
 sampleTable=read.csv(args[1])
+
+
+
+
 ddsHTSeq<-DESeqDataSetFromHTSeqCount(sampleTable=sampleTable, directory="", design=~condition)
 
 
 
 dds<-DESeq(ddsHTSeq)
-
-
-#normalize using DESeq
-outcsv_norm_deseq<-paste(args[2],args[3],"_geneCounts_norm_deseq.csv",sep="")
-countsN=counts(dds, normalized=TRUE)
-write.csv(countsN, file =outcsv_norm_deseq)
 
 
 #DE
